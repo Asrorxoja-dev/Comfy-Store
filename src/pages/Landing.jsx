@@ -1,8 +1,11 @@
 import React from 'react'
+import { Hero } from '../components'
 
 function Landing() {
   return (
-    <div>Landing</div>
+    <div className='align-content'>
+      <Hero/>
+    </div>
   )
 }
 
