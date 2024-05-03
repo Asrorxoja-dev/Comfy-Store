@@ -1,3 +1,4 @@
+import ErrorElement from "./components/ErrorElement";
 import {
   HomeLayout,
   About,
@@ -11,7 +12,7 @@ import {
   Error,
   Checkout
 } from "./pages";
-
+import { loader as LandingLoader } from "./pages/Landing";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
@@ -23,14 +24,16 @@ function App() {
       children:[
         {
           index:true,
-          element: <Landing/>
+          element: <Landing/>,
+          errorElement: <ErrorElement/>,
+          loader: LandingLoader
         },
         {
           path:"/products",
           element:<Products/>
         },
         {
-          path:"/product/:id",
+          path:"/products/:id",
           element:<SingleProduct/>
         },
         {

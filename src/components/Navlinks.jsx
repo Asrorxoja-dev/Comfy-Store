@@ -39,8 +39,8 @@ function NavLinks() {
     <>
    
     {links.map((link)=>{
-       return <li >
-        <NavLink className="px-5 py-2 text-1xl font-semibold hover:bg-base-content hover:text-white rounded" key={link.id} to={link.link}>{link.text}</NavLink>
+       return <li key={link.id}>
+        <NavLink className="px-5 py-2 text-1xl font-semibold hover:bg-base-content hover:text-white rounded"  to={link.link}>{link.text}</NavLink>
        </li>
     })}
    

@@ -7,7 +7,7 @@ function HomeLayout() {
     <div >
       <Header/>
         <Navbar />
-      <main className="mt-16">
+      <main className=" align-content mt-16">
         <Outlet />
       </main>
     </div>
