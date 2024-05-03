@@ -13,8 +13,8 @@ function ProductGrid() {
         return (
           <Link
             key={product.id}
-            to={`/products/${product.id}`}
-            className="card w-full shadow-xl hover:shadow-2xl transition duration-300"
+            to={`/product/${product.id}`}
+            className="card w-full shadow-xl hover:shadow-2xl transition duration-300 mb-5"
           >
             <figure className="px-4 pt-4">
               <img

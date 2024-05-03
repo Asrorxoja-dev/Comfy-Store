@@ -12,6 +12,11 @@ const links =[
         link:"/about",
     },
     {
+      id:5,
+      text:"Products",
+      link:"/products"
+  },
+    {
         id:3,
         text:"Card",
         link:"/card"
@@ -22,11 +27,7 @@ const links =[
       text:"Checkout",
       link:"/checkout"
   },
-  {
-    id:5,
-    text:"Products",
-    link:"/products"
-},
+ 
   {
     id:6,
     text:"Orders",
@@ -40,7 +41,7 @@ function NavLinks() {
    
     {links.map((link)=>{
        return <li key={link.id}>
-        <NavLink className="px-5 py-2 text-1xl font-semibold hover:bg-base-content hover:text-white rounded"  to={link.link}>{link.text}</NavLink>
+        <NavLink className="px-5 py-2 text-1xl font-semibold hover:bg-base-content hover:text-white rounded-x"  to={link.link}>{link.text}</NavLink>
        </li>
     })}
    
