@@ -4,7 +4,7 @@ import ProductGrid from "./ProductGrid";
 
 function FeaturedProducts() {
 const {products} = useLoaderData()
-console.log(products);
+
 
   return (
     <div className="pt-24">

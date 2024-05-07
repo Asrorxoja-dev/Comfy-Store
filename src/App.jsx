@@ -13,6 +13,7 @@ import {
   Checkout
 } from "./pages";
 import { loader as LandingLoader } from "./pages/Landing";
+import { loader as ProductsLoader } from "./pages/Products";
 import { loader as SingleProductLoader } from "./pages/SingleProduct";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -32,6 +33,7 @@ function App() {
         {
           path:"/products",
           element:<Products/>,
+          loader:ProductsLoader
         },
         {
           path:"/product/:id",
