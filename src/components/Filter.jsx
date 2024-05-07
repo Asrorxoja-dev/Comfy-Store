@@ -33,7 +33,7 @@ function Filter() {
         list={["a-z","z-a","high","low"]}
         size="select-sm"
         />
-        <FormRange name="price" size="select-sm" label="select price"/>
+        <FormRange name="price" size="range-sm" label="select price"/>
         <button className="btn btn-primary mb-3 mt-3 btn-sm">
             Search 
         </button>

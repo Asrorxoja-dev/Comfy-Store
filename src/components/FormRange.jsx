@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function FormRange({ name, label, size }) {
   const step = 1000;
-  const maxPrise = 10000;
+  const maxPrise = 100000;
   const [selectedPrice, setSelectedPrice] = useState(maxPrise);
   return (
     <div className="form-control">
