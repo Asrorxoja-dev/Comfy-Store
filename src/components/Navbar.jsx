@@ -6,6 +6,7 @@ import { IoSunnyOutline } from "react-icons/io5";
 import { IoMoonOutline } from "react-icons/io5";
 import { useState, useEffect } from "react";
 
+
 const themes = {
   dark: "dracula",
   light: "winter",
@@ -13,7 +14,7 @@ const themes = {
 
 function Navbar() {
   const [theme, setTheme] = useState(darkModeLocalstorage());
-
+ 
   
 
   function darkModeLocalstorage() {
@@ -81,7 +82,7 @@ function Navbar() {
 <div className="indicator">
   <BsCart3  className="w-6 h-6"/>
   <span className="badge badse:sm badge-primary indicator-item">
-    10
+   5
   </span>
 </div>
           </NavLink>
