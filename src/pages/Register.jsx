@@ -1,8 +1,30 @@
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useActionData } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import SubmitBtn from "../components/SubmitBtn";
+import { useRegister } from "./hooks/useRegister";
+import { useEffect } from "react";
+
+export const action = async({request}) =>{
+  let formData = await request.formData()
+  let displayName = formData.get("displayName")
+  let photoURL = formData.get("photoURL")
+  let email = formData.get("email")
+  let password = formData.get("password")
+
+  return {displayName, photoURL, email, password}
+}
 
 function Register() {
+  const data = useActionData()
+  
+ const { register } = useRegister()
+  
+ useEffect(()=>{
+  if(data){
+    register(data)
+  }
+ },[data])
+
   return (
     <div className="h-screen grid place-content-center my-4">
       <Form

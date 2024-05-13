@@ -82,7 +82,7 @@ const addToCart = () =>{
             value={amount}
             onChange={(e)=> setAmount(e.target.value)}
             >
-              {generateAmountOptions(5)}
+              {generateAmountOptions(20)}
             </select>
           </div>
           <div className="mt-10">

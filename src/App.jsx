@@ -15,13 +15,28 @@ import {
 import { loader as LandingLoader } from "./pages/Landing";
 import { loader as ProductsLoader } from "./pages/Products";
 import { loader as SingleProductLoader } from "./pages/SingleProduct";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 
+import { ProtectedRoutes } from "./components";
+import { useSelector } from "react-redux";
+
+import {action as RegisterAction} from './pages/Register'
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/fireBaseConfig";
+import { authReady } from "./features/user/userSlice";
+
+import { login } from "./features/user/userSlice";
+import { useDispatch } from "react-redux";
 function App() {
+  const dispatch = useDispatch()
+  const {user, authReadyState} = useSelector((state)=> state.userState);
   const routes = createBrowserRouter([
     {
       path:"/",
-      element: <HomeLayout/>,
+      element: <ProtectedRoutes user={user}>
+        <HomeLayout/>
+      </ProtectedRoutes>,
       errorElement:<Error/>,
       children:[
         {
@@ -61,15 +76,23 @@ function App() {
     {
       path:"/login",
       errorElement:<Error/>,
-      element:<Login/>
+      element: user ? <Navigate to="/"/> : <Login/>
     },
     {
       path:"/register",
       errorElement:<Error/>,
-      element:<Register/>
+      element: user ? <Navigate to="/"/> : <Register/>,
+      action:RegisterAction
     }
   ]);
-  return  <RouterProvider router={routes}/>;
+
+  useEffect(()=>{
+    onAuthStateChanged(auth,(user)=>{
+      dispatch(login(user))
+      dispatch(authReady())
+    })
+  },[])
+  return <>{authReady && <RouterProvider router={routes}/>}</>
 }
 
 export default App;

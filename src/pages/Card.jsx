@@ -1,6 +1,10 @@
-import React from 'react'
+import { useSelector } from "react-redux";
+
 
 function Card() {
+  const user = null;
+  const numItemsInCart  = useSelector((state)=> state.cartState.numItemsInCart)
+  
   return (
     <div>
       <h1>Card</h1>

@@ -82,7 +82,7 @@ function Navbar() {
 <div className="indicator">
   <BsCart3  className="w-6 h-6"/>
   <span className="badge badse:sm badge-primary indicator-item">
-   5
+5
   </span>
 </div>
           </NavLink>
