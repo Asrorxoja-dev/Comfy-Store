@@ -1,8 +1,29 @@
 import { Form, Link } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import SubmitBtn from "../components/SubmitBtn";
+import { useActionData } from "react-router-dom";
+import { useLogin } from "./hooks/useLogin";
+import { useEffect } from "react";
+
+
+export const action = async({request}) =>{
+  let formData = await request.formData()
+  let email = formData.get("email")
+  let password = formData.get("password")
+
+  return {email, password}
+}
 
 function Login() {
+  const data = useActionData()
+  
+  const { Login } = useLogin()
+   
+  useEffect(()=>{
+   if(data){
+     Login(data)
+   }
+  },[data])
   return (
     <div className="h-screen grid place-content-center">
       <Form

@@ -21,6 +21,7 @@ import { ProtectedRoutes } from "./components";
 import { useSelector } from "react-redux";
 
 import {action as RegisterAction} from './pages/Register'
+import {action as LoginAction} from './pages/Login'
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/fireBaseConfig";
@@ -76,7 +77,8 @@ function App() {
     {
       path:"/login",
       errorElement:<Error/>,
-      element: user ? <Navigate to="/"/> : <Login/>
+      element: user ? <Navigate to="/"/> : <Login/>,
+      action:LoginAction
     },
     {
       path:"/register",
