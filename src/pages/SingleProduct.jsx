@@ -25,7 +25,7 @@ const cartProduct = {
   image,
   title,
   price,
-  amount,
+  amount: Number(amount),
   productColor,
   company
 }
